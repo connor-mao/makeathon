@@ -1,12 +1,12 @@
-#include "pico/stdlib.h"
+/*#include "pico/stdlib.h"
 #include <stdio.h>
 #include <math.h>
 
-#define THERMISTOR_PIN 26
+#define THERMISTOR_PIN 27
 #define BUZZER_PIN 15
 #define LED_PIN PICO_DEFAULT_LED_PIN
 #define TEMP_THRESHOLD 50.0 //celsius 
-/thermistor at GP 27, ADC 1
+//thermistor at GP 27, ADC 1
 #define R_FIXED 10000.0
 #define BETA 3950.0
 #define T0 298.15 //25C in Kelvin
@@ -43,7 +43,7 @@ int main() {
 
         printf("Temperature: %.2f C\n", temp);
 
-        if (temperature >= TEMP_THRESHOLD) {
+        if (temp >= TEMP_THRESHOLD) {
             gpio_put(BUZZER_PIN, true);
             gpio_put(LED_PIN, true);
         } else {
@@ -55,4 +55,4 @@ int main() {
     }
 
     return 0;
-}
+}*/ 
