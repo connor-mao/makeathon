@@ -6,7 +6,7 @@
 #define BUZZER_PIN 15
 #define LED_PIN PICO_DEFAULT_LED_PIN
 #define TEMP_THRESHOLD 50.0 //celsius 
-
+/thermistor at GP 27, ADC 1
 #define R_FIXED 10000.0
 #define BETA 3950.0
 #define T0 298.15 //25C in Kelvin
@@ -28,7 +28,7 @@ int main() {
     stdio_init_all();
     adc_init();
     adc_gpio_init(THERMISTOR_PIN);
-    adc_select_input(0); //assuming thermistor is connected to ADC0
+    adc_select_input(1); // thermistor is connected to ADC1
 
     gpio_init(BUZZER_PIN);
     gpio_set_dir(BUZZER_PIN, GPIO_OUT);
