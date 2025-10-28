@@ -4,7 +4,7 @@
 #include "hardware/adc.h"
 
 #define THERMISTOR_PIN 27
-#define BUZZER_PIN 1
+#define BUZZER_PIN 16
 #define LED_PIN PICO_DEFAULT_LED_PIN
 #define TEMP_THRESHOLD -3 //celsius 
 //thermistor at GP 28, ADC 2
@@ -17,7 +17,7 @@
 float adc_to_resistance(uint16_t adc_val) {
     float v = adc_val * 3.3 / 4095.0;
     return R_FIXED * (3.3 / v - 1.0); //thermistor first 
-    //return R_FIXED * (v / (3.3 - v));
+    //return R_FIXED * (v / (3.3 - v)); //resistor first 
 
 }
 
@@ -30,30 +30,23 @@ float resistance_to_celsius(float resis){
 int main() {
     stdio_init_all();
 
-    adc_init();
-    adc_gpio_init(THERMISTOR_PIN);
-    adc_select_input(1);
-
-    /*while (true) {
-        uint16_t val = adc_read();
-        printf("%u\n", val);
-        sleep_ms(500);
-    }*/
-
+    //initialize buzzer, pin, test if working
     gpio_init(BUZZER_PIN);
     gpio_set_dir(BUZZER_PIN, GPIO_OUT);
-    gpio_set_function(BUZZER_PIN, GPIO_FUNC_SIO);
-    gpio_put(BUZZER_PIN, false);
     gpio_put(BUZZER_PIN, true);
     sleep_ms(2000);
     gpio_put(BUZZER_PIN, false);
-    
-    
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
     gpio_put(LED_PIN, true);
     sleep_ms(2000);
     gpio_put(LED_PIN, false);
+
+    adc_init();
+    adc_gpio_init(THERMISTOR_PIN);
+    adc_select_input(1);
+
+    
 
     while (true) {
         uint16_t adc_val = adc_read();
