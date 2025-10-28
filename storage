@@ -10,7 +10,13 @@
     gpio_set_dir(LED_PIN, GPIO_OUT);
     gpio_put(LED_PIN, 1);
     sleep_ms(5000);*/
-
+    
+    //testing adc readings
+    /*while (true) {
+        uint16_t val = adc_read();
+        printf("%u\n", val);
+        sleep_ms(500);
+    }*/
     
     //gpio_put(LED_PIN, 0);
     /*stdio_init_all();
@@ -30,20 +36,14 @@
 
    printf("please work");*/
 
-
+   //testing led loop 
    /*while(true) {
     gpio_put(PICO_DEFAULT_LED_PIN, true);
     sleep_ms(500);
     gpio_put(PICO_DEFAULT_LED_PIN, false);
     sleep_ms(500);  
    }*/
-
-  /*gpio_init(PICO_DEFAULT_LED_PIN);
-  gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
-  gpio_put(PICO_DEFAULT_LED_PIN, true);
-  sleep_ms(2000);
-  gpio_put(PICO_DEFAULT_LED_PIN, false);*/
-  /*
+/*
   return 0;
 } */
 

@@ -1,5 +1,6 @@
 #include "pico/stdlib.h"
 #include <stdio.h>
+#include <stdint.h>
 #include <math.h>
 #include "hardware/adc.h"
 
@@ -7,7 +8,7 @@
 #define BUZZER_PIN 16
 #define LED_PIN PICO_DEFAULT_LED_PIN
 #define TEMP_THRESHOLD -3 //celsius 
-//thermistor at GP 28, ADC 2
+//thermistor at GP 27, ADC 1
 #define R_FIXED 10000.0 // resistor value
 #define BETA 3950.0
 #define T0 298.15 //25C in Kelvin

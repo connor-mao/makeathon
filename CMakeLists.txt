@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(nairobi nairobi.c )
+add_executable(nairobi main.c )
 
 pico_set_program_name(nairobi "nairobi")
 pico_set_program_version(nairobi "0.1")
